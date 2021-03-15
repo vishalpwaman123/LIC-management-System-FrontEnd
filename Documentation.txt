@@ -1,0 +1,20 @@
+Web Application Name: LIC Management System
+
+Software Requirement :
+
+visual studio code(VSC),
+node js,
+npm (install npm dependency)
+
+--------------------------------------------
+
+Create folder:  LIC Management System
+
+one visual studio code(VSC)
+
+open terminal in visual studio code(VSC) 
+
+command : npx create-react-app lic_management_system
+
+-------------------------------------------------------------
+
