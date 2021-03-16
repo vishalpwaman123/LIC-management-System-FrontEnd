@@ -1,9 +1,7 @@
 import React from "react";
-import "./login.scss";
+import "./login.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Alert from "@material-ui/lab/Alert";
-import AlertTitle from "@material-ui/lab/AlertTitle";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
@@ -29,7 +27,7 @@ export default class Registration extends React.Component {
     this.state = {
       email: null,
       password: null,
-      accountType: "User",
+      accountType: "Customer",
 
       errors: {
         email: "",
@@ -194,15 +192,15 @@ export default class Registration extends React.Component {
               onChange={this.accountTypeHandle}
             >
               <FormControlLabel
-                value="Admin"
+                value="Management"
                 control={<Radio />}
-                label="Admin"
+                label="Management"
                 className="admin-Radio-Button"
               />
               <FormControlLabel
-                value="User"
+                value="Customer"
                 control={<Radio />}
-                label="User"
+                label="Customer"
                 className="user-Radio-Button"
               />
             </RadioGroup>

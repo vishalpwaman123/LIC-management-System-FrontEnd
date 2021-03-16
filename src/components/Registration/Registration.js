@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import logo from "../../Asserts/logoRegister.svg";
-import "./Registration.scss";
+import "./Registration.css";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -32,7 +32,7 @@ export default class Registration extends React.Component {
       email: null,
       password: null,
       confirmPassword: null,
-      accountType: "User",
+      accountType: "Customer",
 
       errors: {
         firstName: "",
@@ -281,14 +281,14 @@ export default class Registration extends React.Component {
                     onChange={this.accountTypeHandle}
                   >
                     <FormControlLabel
-                      value="Admin"
+                      value="Management"
                       control={<Radio />}
-                      label="Admin"
+                      label="Management"
                     />
                     <FormControlLabel
-                      value="User"
+                      value="Customer"
                       control={<Radio />}
-                      label="User"
+                      label="Customer"
                     />
                   </RadioGroup>
                 </div>

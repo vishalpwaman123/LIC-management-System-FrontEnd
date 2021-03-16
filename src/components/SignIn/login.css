@@ -1,0 +1,186 @@
+.loginMainContainer {
+  background-color: #fff;
+  border: 1px solid #dadce0;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginMainContainer .loginContainer {
+  padding: 30px;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 33%;
+  height: 90%;
+  border-radius: 5px;
+  border: 1px solid #c3c4c7;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginMainContainer .loginContainer .loginfundoofont {
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.loginMainContainer .loginContainer .logintitle {
+  padding-top: 5px 5px 5px 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.loginMainContainer .loginContainer .loginSubTitle {
+  padding-top: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.6;
+}
+.loginMainContainer .loginContainer .Input-Field {
+  width: 100%;
+  height: 50%;
+}
+.loginMainContainer .loginContainer .Input-Field .textField1 {
+  height: 50%;
+  width: 100%;
+}
+.loginMainContainer .loginContainer .Input-Field .textField1 .InputField {
+  height: 60%;
+  width: 100%;
+}
+.loginMainContainer
+  .loginContainer
+  .Input-Field
+  .textField1
+  .MuiFormHelperText-contained {
+  margin-left: 3px;
+}
+.loginMainContainer .loginContainer .Input-Field .textField1 .error {
+  padding-left: 1%;
+  height: 21%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginMainContainer
+  .loginContainer
+  .Input-Field
+  .textField1
+  .error
+  .errorMessage {
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+.loginMainContainer .loginContainer .Input-Field .textField2 {
+  height: 50%;
+  width: 100%;
+}
+.loginMainContainer .loginContainer .Input-Field .textField2 .InputField {
+  height: 79%;
+  width: 100%;
+}
+.loginMainContainer
+  .loginContainer
+  .Input-Field
+  .textField2
+  .MuiFormHelperText-contained {
+  margin-left: 3px;
+}
+.loginMainContainer .loginContainer .Input-Field .textField2 .error {
+  padding-left: 1%;
+  height: 21%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginMainContainer
+  .loginContainer
+  .Input-Field
+  .textField2
+  .error
+  .errorMessage {
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+.loginMainContainer .loginContainer .radiobutton {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.loginMainContainer .loginContainer .radiobutton .radiobutton1 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.loginMainContainer
+  .loginContainer
+  .radiobutton
+  .radiobutton1
+  .admin-Radio-Button {
+  width: 30%;
+}
+.loginMainContainer
+  .loginContainer
+  .radiobutton
+  .radiobutton1
+  .user-Radio-Button {
+  width: 70%;
+}
+.loginMainContainer .loginContainer .Lbutton3 {
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  width: 100%;
+}
+.loginMainContainer .loginContainer .Lbutton3 .MuiButton-text {
+  padding: 6px 0px;
+}
+.loginMainContainer .loginContainer .buttonContainer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  width: 100%;
+}
+.loginMainContainer .loginContainer .buttonContainer .Lbutton1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+.loginMainContainer .loginContainer .buttonContainer .Lbutton1 .CreateAccount {
+  font-size: 15px;
+  font-weight: 600;
+}
+.loginMainContainer .loginContainer .buttonContainer .Lbutton2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+.loginMainContainer .loginContainer .p {
+  border: 1px solid #c3c4c7;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+.error {
+  color: red;
+}
+.errorMessage {
+  font-size: 12px;
+}
+.FT {
+  font-family: Helvetica;
+}
