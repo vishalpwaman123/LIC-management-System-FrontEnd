@@ -1,0 +1,219 @@
+.error {
+	 height: 25%;
+	 width: 75%;
+}
+ .user-detail-container {
+	 height: 100%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 background-color: #fff;
+}
+ .user-detail-container .sub_Container {
+	 height: 95%;
+	 width: 40%;
+	 border: 0.5px solid #c3c4c7;
+	 box-sizing: border-box;
+	 border-radius: 10px;
+}
+ .user-detail-container .sub_Container .header {
+	 height: 15%;
+	 width: 100%;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .header .lic-Header {
+	 height: 50%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 font-weight: 600;
+	 font-size: 20px;
+}
+ .user-detail-container .sub_Container .header .user-Header {
+	 height: 50%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 font-size: 18px;
+	 font-weight: 500;
+}
+ .user-detail-container .sub_Container .user-Information {
+	 height: 85%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Name {
+	 height: 14%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .user-detail-container .sub_Container .user-Information .user-Name .user-Name-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 10px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Name .user-Name-Input {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Age {
+	 height: 14%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .user-detail-container .sub_Container .user-Information .user-Age .user-Age-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 10px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Age .user-Age-Input {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Gender {
+	 height: 14%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .user-detail-container .sub_Container .user-Information .user-Gender .user-Gender-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 15px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Gender .user-Gender-Radio {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Gender .user-Gender-Radio .radiobutton1 {
+	 display: flex;
+	 justify-content: center;
+	 align-items: flex-end;
+	 flex-direction: row;
+}
+ .user-detail-container .sub_Container .user-Information .user-Qualification {
+	 height: 14%;
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .user-detail-container .sub_Container .user-Information .user-Qualification .user-Qualification-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 10px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Qualification .user-Qualification-Input {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Address {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 height: 14%;
+	 width: 100%;
+}
+ .user-detail-container .sub_Container .user-Information .user-Address .user-Address-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 10px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Address .user-Address-Input {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Occupation {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 height: 14%;
+	 width: 100%;
+}
+ .user-detail-container .sub_Container .user-Information .user-Occupation .user-Occupation-Text {
+	 height: 100%;
+	 width: 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 padding-bottom: 10px;
+}
+ .user-detail-container .sub_Container .user-Information .user-Occupation .user-Occupation-Input {
+	 height: 100%;
+	 width: 70%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 flex-direction: column;
+}
+ .user-detail-container .sub_Container .user-Information .user-Information-Button {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 height: 14%;
+	 width: 100%;
+}
+ .user-detail-container .sub_Container .user-Information .user-Information-Button .user-Back-Button {
+	 height: 100%;
+	 width: 50%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .user-detail-container .sub_Container .user-Information .user-Information-Button .user-Submit-Button {
+	 height: 100%;
+	 width: 50%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .Font-style, .user-detail-container .sub_Container .header .lic-Header, .user-detail-container .sub_Container .header .user-Header {
+	 font-family: Helvetica;
+}
+ 
