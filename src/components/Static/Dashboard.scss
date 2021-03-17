@@ -40,9 +40,24 @@
       @include flex(flex, none, none);
 
       .sidebar {
-        @include height_width(100%, 15%);
+        @include height_width(100%, 20%);
+        @include flex(flex, none, center);
+        flex-direction: column;
         // @include border(0.5px, solid, blue, border-box);
         border-right: 0.5px solid #c3c4c7;
+        padding: 1%;
+
+        .menu-Option {
+          @include flex(flex, center, center);
+          @include height_width(15%, 100%);
+          @include border(0.5px, solid, #c3c4c7, border-box);
+          margin: 2%;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .MuiButton-root {
+          text-transform: none;
+        }
       }
 
       .main-body {
