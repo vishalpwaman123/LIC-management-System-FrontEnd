@@ -7,9 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
-// import userService from '../../Services/userServices';
+import userService from "../../services/userServices";
 
-// const User_service = new userService();
+const User_service = new userService();
 
 const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+.)+[^<>()[\].,;:\s@"]{2,})$/i
@@ -27,16 +27,12 @@ export default class Registration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: null,
-      lastName: null,
       email: null,
       password: null,
       confirmPassword: null,
       accountType: "Customer",
 
       errors: {
-        firstName: "",
-        lastName: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -58,12 +54,6 @@ export default class Registration extends React.Component {
     let flags = this.state.flags;
     let errors = this.state.errors;
 
-    if (this.state.firstName == null) {
-      errors.firstName = "First Name Required";
-    }
-    if (this.state.lastName == null) {
-      errors.lastName = "Last Name Required";
-    }
     if (this.state.email == null) {
       errors.email = "Email Id Required";
     }
@@ -75,49 +65,42 @@ export default class Registration extends React.Component {
     }
 
     if (validateForm(this.state.errors)) {
-      flags.status = "Success";
+      // flags.status = "Success";
       console.info("Valid Form");
 
       if (
-        this.state.firstName === null ||
-        this.state.lastName === null ||
         this.state.email === null ||
         this.state.password === null ||
         this.state.confirmPassword === null
       ) {
-        flags.status = "Failed";
+        // flags.status = "Failed";
         console.error("Invalid Form");
       } else {
         const user = {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
           email: this.state.email,
           password: this.state.password,
-          service: "Advance",
+          account_Type: this.state.accountType,
         };
 
         if (this.state.password === this.state.confirmPassword) {
           console.log("Calling Api");
-          // User_service.registration(user)
-          // .then(data => {
-          //     console.log("Login Data :", data);
-          //     const object = data.data;
-          //     console.log(object.success);
-          //     console.log(object.message);
-          //     /*Responses.Message = object.message;*/
-
-          // })
+          User_service.Registration(user).then((data) => {
+            console.log("Login Data :", data);
+            const object = data.data;
+            console.log(object.success);
+            console.log(object.message);
+          });
           // .catch(error => {
           //     console.log(error);
           // })
         }
       }
     } else {
-      flags.status = "Failed";
+      // flags.status = "Failed";
       console.error("Invalid Form");
     }
 
-    this.setState({ flags }, () => console.log(this.state));
+    // this.setState({ flags }, () => console.log(this.state));
   };
 
   handleChange = (event) => {
@@ -126,12 +109,6 @@ export default class Registration extends React.Component {
     let errors = this.state.errors;
 
     switch (name) {
-      case "firstName":
-        errors.firstName = value.length <= 3 ? "First Name is not valid" : "";
-        break;
-      case "lastName":
-        errors.lastName = value.length <= 3 ? "Last Name is not valid" : "";
-        break;
       case "email":
         errors.email = validEmailRegex.test(value) ? "" : "Email Id not valid";
         break;
@@ -153,7 +130,7 @@ export default class Registration extends React.Component {
   accountTypeHandle = (event) => {
     event.preventDefault();
     const { value } = event.target;
-    let accountType = this.state.accountType;
+    // let accountType = this.state.accountType;
     console.log(value);
     this.setState({ accountType: value }, () =>
       console.log(this.state.accountType)
@@ -162,8 +139,6 @@ export default class Registration extends React.Component {
 
   render() {
     const { errors } = this.state;
-    const { flags } = this.state;
-    const { Responses } = this.state;
     return (
       <div className="mainContainer">
         <div className="bodyContainer">
