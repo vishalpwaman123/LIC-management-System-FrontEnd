@@ -211,7 +211,7 @@ export default class Registration extends React.Component {
                       id="outlined-size-small"
                       variant="outlined"
                       size="small"
-                      helperText="Use EmailID or Mobile Number"
+                      helperText="Use Email ID"
                       required
                       placeholder="@gmail.com"
                       text-align="right"
@@ -281,9 +281,19 @@ export default class Registration extends React.Component {
                     onChange={this.accountTypeHandle}
                   >
                     <FormControlLabel
-                      value="Management"
+                      value="CEO"
                       control={<Radio />}
-                      label="Management"
+                      label="CEO"
+                    />
+                    <FormControlLabel
+                      value="Manager"
+                      control={<Radio />}
+                      label="Manager"
+                    />
+                    <FormControlLabel
+                      value="Agent"
+                      control={<Radio />}
+                      label="Agent"
                     />
                     <FormControlLabel
                       value="Customer"

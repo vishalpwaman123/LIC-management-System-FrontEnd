@@ -151,7 +151,7 @@ export default class Registration extends React.Component {
                 id="outlined-size-small"
                 variant="outlined"
                 size="small"
-                helperText="Use EmailID or Mobile Number"
+                helperText="Use EmailID"
                 required
                 text-align="right"
                 value={this.state.email}
@@ -186,22 +186,34 @@ export default class Registration extends React.Component {
           </div>
           <div className="radiobutton">
             <RadioGroup
-              aria-label="gender"
+              aria-label="categoty"
               className="radiobutton1"
               value={this.state.accountType}
               onChange={this.accountTypeHandle}
             >
               <FormControlLabel
-                value="Management"
+                value="CEO"
                 control={<Radio />}
-                label="Management"
-                className="admin-Radio-Button"
+                label="CEO"
+                className="ceo-Radio-Button"
+              />
+              <FormControlLabel
+                value="Manager"
+                control={<Radio />}
+                label="Manager"
+                className="manager-Radio-Button"
+              />
+              <FormControlLabel
+                value="Agent"
+                control={<Radio />}
+                label="Agent"
+                className="agent-Radio-Button"
               />
               <FormControlLabel
                 value="Customer"
                 control={<Radio />}
                 label="Customer"
-                className="user-Radio-Button"
+                className="customer-Radio-Button"
               />
             </RadioGroup>
           </div>

@@ -203,14 +203,16 @@
 	 height: 100%;
 	 width: 50%;
 	 display: flex;
-	 justify-content: center;
+	 justify-content: flex-start;
+	 margin-left: 20px;
 	 align-items: center;
 }
  .user-detail-container .sub_Container .user-Information .user-Information-Button .user-Submit-Button {
 	 height: 100%;
 	 width: 50%;
+	 margin-right: 20px;
 	 display: flex;
-	 justify-content: center;
+	 justify-content: flex-end;
 	 align-items: center;
 }
  .Font-style, .user-detail-container .sub_Container .header .lic-Header, .user-detail-container .sub_Container .header .user-Header {
