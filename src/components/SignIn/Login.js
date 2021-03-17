@@ -82,10 +82,18 @@ export default class Registration extends React.Component {
         User_service.login(user)
           .then((data) => {
             if (data.status === 200) {
-              console.log(data.data.id);
+              console.log(data.data);
               this.setState({ snackbaropen: true });
               this.setState({ Success: true });
-              // this.props.history.push('/dashboard');
+              if (user.account_Type == "Customer") {
+                this.props.history.push("/userDashboaed");
+              } else if (user.account_Type == "Agent") {
+                this.props.history.push("/AgentDashboaed");
+              } else if (user.account_Type == "Manager") {
+                this.props.history.push("/BranchManagerboard");
+              } else {
+                this.props.history.push("/CEODashboaed");
+              }
             }
           })
           .catch((error) => {
