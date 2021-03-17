@@ -9,4 +9,9 @@ export default class userServices {
     // console.log("Url User:", url);
     return axiosService.post(url, data, false);
   }
+
+  login(data) {
+    let url = config.Login;
+    return axiosService.post(url, data, false);
+  }
 }

@@ -5,9 +5,12 @@ import Button from "@material-ui/core/Button";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
-// import userService from '../../Services/userServices';
+import MuiAlert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
 
-// const User_service = new userService();
+import userService from "../../services/userServices";
+
+const User_service = new userService();
 
 const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+.)+[^<>()[\].,;:\s@"]{2,})$/i
@@ -21,6 +24,10 @@ const validateForm = (errors) => {
   return valid;
 };
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export default class Registration extends React.Component {
   constructor(props) {
     super(props);
@@ -28,18 +35,23 @@ export default class Registration extends React.Component {
       email: null,
       password: null,
       accountType: "Customer",
+      Alertstatus: null,
+      Success: null,
+      snackbaropen: false,
 
       errors: {
         email: "",
         password: "",
       },
-
-      flags: {
-        success: "",
-        failed: "",
-      },
     };
   }
+
+  handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    this.setState({ snackbaropen: false });
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -55,44 +67,36 @@ export default class Registration extends React.Component {
     }
 
     if (validateForm(this.state.errors)) {
-      flags.failed = "";
-      flags.success = "Success";
       console.info("Valid Form");
 
       if (this.state.email === null || this.state.password === null) {
-        flags.success = "";
-        flags.failed = "Failed";
         console.error("invalid Form");
       } else {
         const user = {
           email: this.state.email,
           password: this.state.password,
+          account_Type: this.state.accountType,
         };
 
         console.log("Calling Api");
-        // User_service.login(user)
-        // .then(data => {
-        //     localStorage.setItem("token",data.data.id);
-
-        //     if(data.status === 200) {
-        //         console.log(data.data.id);
-        //         this.props.history.push('/dashboard');
-
-        //     }
-        // })
-        // .catch(error => {
-        //     flags.success = "";
-        //     flags.failed = "Failed";
-        //     console.log(error);
-        // })
+        User_service.login(user)
+          .then((data) => {
+            if (data.status === 200) {
+              console.log(data.data.id);
+              this.setState({ snackbaropen: true });
+              this.setState({ Success: true });
+              // this.props.history.push('/dashboard');
+            }
+          })
+          .catch((error) => {
+            this.setState({ snackbaropen: true });
+            this.setState({ Success: false });
+            console.log(error);
+          });
       }
     } else {
-      flags.success = "";
-      flags.failed = "Failed";
       console.error("Invalid Form");
     }
-
-    this.setState({ flags }, () => console.log(this.state));
   };
 
   handleChange = (event) => {
@@ -244,25 +248,27 @@ export default class Registration extends React.Component {
               </Button>
             </div>
           </div>
-          {/* <div className="AlertMessage">
-            <div className="successAlert">
-              {flags.success.length > 0 && flags.failed == null && (
-                <Alert severity="success">
-                  <AlertTitle>Success</AlertTitle>
-                  <strong>Congratulation, Login SuccessFull!</strong>
-                </Alert>
-              )}
-            </div>
-            <div className="failedAlert">
-              {flags.failed.length > 0 && (
-                <Alert severity="error">
-                  <AlertTitle>
-                    <strong>Login Failed!</strong>
-                  </AlertTitle>
-                </Alert>
-              )}
-            </div>
-          </div> */}
+          <div className="AlertMessage">
+            {this.state.snackbaropen ? (
+              <Snackbar
+                open={this.state.snackbaropen}
+                autoHideDuration={6000}
+                onClose={this.handleSnackbarClose}
+              >
+                {this.state.Success ? (
+                  <Alert onClose={this.handleSnackbarClose} severity="success">
+                    Registration successful.
+                  </Alert>
+                ) : (
+                  <Alert onClose={this.handleSnackbarClose} severity="error">
+                    Registration Unsuccessful.
+                  </Alert>
+                )}
+              </Snackbar>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     );
