@@ -14,6 +14,24 @@
   align-items: $align-items;
 }
 
+.sub-main-body {
+  @include height_width(14.21%, 100%);
+  @include border(0.5px, solid, brown, border-box);
+  @include flex(flex, none, none);
+}
+
+.sub-sub1-main-body {
+  @include border(0.5px, solid, #c3c4c7, border-box);
+  @include height_width(100%, 30%);
+  @include flex(flex, center, center);
+}
+
+.sub-sub2-main-body {
+  @include border(0.5px, solid, #c3c4c7, border-box);
+  @include height_width(100%, 70%);
+  @include flex(flex, center, center);
+}
+
 .user-Dashboard-Container {
   @include height_width(100%, 100%);
   @include flex(flex, center, center);
@@ -63,11 +81,109 @@
       .main-body {
         @include height_width(100%, 85%);
         // @include border(0.5px, solid, brown, border-box);
+        .sub-MenuOption {
+          @include height_width(100%, 100%);
+          @include flex(flex, none, none);
+          flex-wrap: wrap;
+          padding: 1%;
+        }
       }
     }
   }
 }
 
+.itemMenu--content {
+  @include border(0.5px, solid, #c3c4c7, border-box);
+  @include height_width(30%, 30%);
+  margin: 1%;
+  border-radius: 10px;
+
+  .current-Menu {
+    @include height_width(100%, 100%);
+    @include flex(flex, center, center);
+  }
+}
+
 .font-families {
   font-family: Helvetica;
+}
+
+.main-body {
+  .user-Name-Dashboard {
+    @extend .sub-main-body;
+    .name-Text {
+      // @include border(0.5px, solid, #c3c4c7, border-box);
+      // @include height_width(100%, 30%);
+      @extend .sub-sub1-main-body;
+    }
+
+    .name-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Email-Dashboard {
+    @extend .sub-main-body;
+    .Email-Text {
+      @extend .sub-sub1-main-body;
+    }
+
+    .Email-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Qualification-Dashboard {
+    @extend .sub-main-body;
+    .Qualification-Text {
+      @extend .sub-sub1-main-body;
+    }
+
+    .Qualification-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Occupation-Dashboard {
+    @extend .sub-main-body;
+    .Occupation-Text {
+      @extend .sub-sub1-main-body;
+    }
+    .Occupation-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Address-Dashboard {
+    @extend .sub-main-body;
+    .Address-Text {
+      @extend .sub-sub1-main-body;
+    }
+
+    .Address-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Age-Dashboard {
+    @extend .sub-main-body;
+    .Age-Text {
+      @extend .sub-sub1-main-body;
+    }
+
+    .Age-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
+
+  .user-Gender-Dashboard {
+    @extend .sub-main-body;
+    .Gender-Text {
+      @extend .sub-sub1-main-body;
+    }
+
+    .Gender-TextField {
+      @extend .sub-sub2-main-body;
+    }
+  }
 }
