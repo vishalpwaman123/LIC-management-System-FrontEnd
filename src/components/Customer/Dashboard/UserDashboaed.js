@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../../Static/Dashboard.scss";
 import MenuList from "../../Static/MenuList.js";
+import userService from "../../../services/userServices";
 
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
+
+
+const User_service = new userService();
 
 function UserDashboaed() {
   const history = useHistory();
@@ -45,6 +49,14 @@ function UserDashboaed() {
       pathname: "/userDetail",
     });
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.pathname); // result: '/secondpage'
+    console.log(location.search); // result: '?query=abc'
+    console.log(location.state.detail); // result: 'some_value'
+  }, [location]);
 
   const showPolicies = () => {
     setPoliciesState(true);

@@ -9,7 +9,6 @@ import MuiAlert from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 
 import userService from "../../services/userServices";
-
 const User_service = new userService();
 
 const validEmailRegex = RegExp(
@@ -87,17 +86,39 @@ export default class Registration extends React.Component {
               this.setState({ snackbaropen: true });
               this.setState({ Success: true });
               if (user.account_Type == "Customer") {
+
                 this.props.history.push({
                   pathname: "/userDashboaed",
                   search: "?query=id",
                   state: { detail: id },
                 });
+
               } else if (user.account_Type == "Agent") {
-                this.props.history.push("/AgentDashboaed");
+
+                this.props.history.push({
+                  pathname: "/AgentDashboaed",
+                  search: "?query=id",
+                  state: { detail: id },
+                });
+
+                // this.props.history.push("/AgentDashboaed");
               } else if (user.account_Type == "Manager") {
-                this.props.history.push("/BranchManagerboard");
+
+                this.props.history.push({
+                  pathname: "/BranchManagerboard",
+                  search: "?query=id",
+                  state: { detail: id },
+                });
+                
+                // this.props.history.push("/BranchManagerboard");
               } else {
-                this.props.history.push("/CEODashboaed");
+
+                this.props.history.push({
+                  pathname: "/CEODashboaed",
+                  search: "?query=id",
+                  state: { detail: id },
+                });
+
               }
             }
           })

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../Static/Dashboard.scss";
+import MenuList from "../../Static/MenuList";
+import userService from "../../../services/userServices";
 
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
+
+const User_service = new userService();
 
 function AgentDashboard() {
   const history = useHistory();
@@ -37,6 +41,14 @@ function AgentDashboard() {
       type: "Mobile insurance",
     },
   ];
+
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.pathname); // result: '/secondpage'
+    console.log(location.search); // result: '?query=abc'
+    console.log(location.state.detail); // result: 'some_value'
+  }, [location]);
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
   const AddDetailButton = () => {
@@ -148,4 +160,3 @@ function AgentDashboard() {
 }
 
 export default AgentDashboard;
-
