@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Static/Dashboard.scss";
+import "../../Static/Dashboard.css";
 import MenuList from "../../Static/MenuList";
 import userService from "../../../services/userServices";
 
@@ -15,6 +15,7 @@ var address = null;
 var age = null;
 var gender = null;
 var defaults = "NA";
+var display_flag = 0;
 
 const User_service = new userService();
 
@@ -68,6 +69,7 @@ function CEODashboaed() {
     address = Data.address;
     age = Data.age;
     gender = Data.gender;
+    display_flag = 1;
     console.log(
       customer_Name,
       email,
@@ -96,7 +98,7 @@ function CEODashboaed() {
       .catch((error) => {
         console.log(error);
       });
-  }, [location]);
+  }, [location, email]);
 
   const showPolicies = () => {
     setPoliciesState(true);
