@@ -9,6 +9,15 @@ import { useLocation } from "react-router-dom";
 
 const User_service = new userService();
 
+var customer_Name = null;
+var email = null;
+var qualification = null;
+var occupation = null;
+var address = null;
+var age = null;
+var gender = null;
+var defaults = "NA";
+
 function AgentDashboard() {
   const history = useHistory();
   const [policiesState, setPoliciesState] = useState(false);
@@ -42,12 +51,43 @@ function AgentDashboard() {
     },
   ];
 
+  const HandleData = (Data) => {
+    console.log(Data.customer_id);
+    customer_Name = Data.customer_Name;
+    email = Data.email;
+    qualification = Data.qualification;
+    occupation = Data.occupation;
+    address = Data.address;
+    age = Data.age;
+    gender = Data.gender;
+    console.log(
+      customer_Name,
+      email,
+      qualification,
+      occupation,
+      address,
+      age,
+      gender
+    );
+  };
+
   const location = useLocation();
 
   useEffect(() => {
     console.log(location.pathname); // result: '/secondpage'
     console.log(location.search); // result: '?query=abc'
     console.log(location.state.detail); // result: 'some_value'
+    const user = {
+      id: location.state.detail,
+    };
+    User_service.fetchDataById(user)
+      .then((data) => {
+        console.log(data.data.data[0]);
+        HandleData(data.data.data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [location]);
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
@@ -107,31 +147,45 @@ function AgentDashboard() {
             <div className="main-body">
               <div className="user-Name-Dashboard">
                 <div className="name-Text">Name :</div>
-                <div className="name-TextField"></div>
+                <div className="name-TextField">
+                  {customer_Name == null ? defaults : customer_Name}
+                </div>
               </div>
               <div className="user-Email-Dashboard">
                 <div className="Email-Text">Email :</div>
-                <div className="Email-TextField"></div>
+                <div className="Email-TextField">
+                  {email == null ? defaults : email}
+                </div>
               </div>
               <div className="user-Qualification-Dashboard">
                 <div className="Qualification-Text">Qualification :</div>
-                <div className="Qualification-TextField"></div>
+                <div className="Qualification-TextField">
+                  {qualification == null ? defaults : qualification}
+                </div>
               </div>
               <div className="user-Occupation-Dashboard">
                 <div className="Occupation-Text">Occupation :</div>
-                <div className="Occupation-TextField"></div>
+                <div className="Occupation-TextField">
+                  {occupation == null ? defaults : occupation}
+                </div>
               </div>
               <div className="user-Address-Dashboard">
                 <div className="Address-Text">Address :</div>
-                <div className="Address-TextField"></div>
+                <div className="Address-TextField">
+                  {address == null ? defaults : address}
+                </div>
               </div>
               <div className="user-Age-Dashboard">
                 <div className="Age-Text">Age :</div>
-                <div className="Age-TextField"></div>
+                <div className="Age-TextField">
+                  {age == null ? defaults : age}
+                </div>
               </div>
               <div className="user-Gender-Dashboard">
                 <div className="Gender-Text">Gender :</div>
-                <div className="Gender-TextField"></div>
+                <div className="Gender-TextField">
+                  {gender == null ? defaults : gender}
+                </div>
               </div>
             </div>
           ) : policiesList ? (
