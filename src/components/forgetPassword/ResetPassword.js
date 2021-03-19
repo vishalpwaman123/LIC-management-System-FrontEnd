@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import MuiAlert from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import userService from "../../services/userServices";
 const User_service = new userService();
@@ -28,7 +29,7 @@ export default function ResetPassword() {
   const [Success, setSuccess] = useState(false);
   const [snackbaropen, setsnackbaropen] = useState(false);
   const [customer_id, setcustomer_id] = useState();
-
+  const history = useHistory();
   const location = useLocation();
   useEffect(() => {
     console.log(location.pathname); // result: '/secondpage'
@@ -112,6 +113,12 @@ export default function ResetPassword() {
     setsnackbaropen(false);
   };
 
+  const handleLoginAgain = () => {
+    history.push({
+      pathname: "/login",
+    });
+  };
+
   return (
     <div className="loginMainContainer">
       <div className="loginContainer">
@@ -171,15 +178,25 @@ export default function ResetPassword() {
             </div>
           </div>
         </div>
-        <div className="buttonContainer">
+        <div className="buttonContainer-forget">
           <div className="Lbutton2">
             <Button
               variant="contained"
               color="primary"
               onClick={handleSubmit}
-              className="SignIn-btn"
+              className="forget-btn"
             >
               Reset Password
+            </Button>
+          </div>
+          <div className="Lbutton3">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleLoginAgain}
+              className="login-btn"
+            >
+              Login Again
             </Button>
           </div>
         </div>
