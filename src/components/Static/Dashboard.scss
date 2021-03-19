@@ -1,0 +1,260 @@
+.sub-main-body {
+	height: 14.21%;
+	width: 100%;
+	display: flex;
+	justify-content: none;
+	align-items: none;
+}
+.main-body {
+	.user-Name-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.name-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.name-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Email-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Email-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Email-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Qualification-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Qualification-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Qualification-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Occupation-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Occupation-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Occupation-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Address-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Address-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Address-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Age-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Age-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Age-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.user-Gender-Dashboard {
+		height: 14.21%;
+		width: 100%;
+		display: flex;
+		justify-content: none;
+		align-items: none;
+		.Gender-Text {
+			height: 100%;
+			width: 30%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Gender-TextField {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+}
+.sub-sub1-main-body {
+	height: 100%;
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sub-sub2-main-body {
+	height: 100%;
+	width: 70%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.user-Dashboard-Container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.sub-container {
+		height: 95%;
+		width: 80%;
+		border: 0.5px solid #c3c4c7;
+		box-sizing: border-box;
+		border-radius: 10px;
+		.header {
+			height: 10%;
+			width: 100%;
+			border-bottom: 0.5px solid #c3c4c7;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			.text {
+				font-size: 20px;
+				font-weight: 600;
+				margin-left: 20px;
+			}
+		}
+		.container-body {
+			height: 90%;
+			width: 100%;
+			display: flex;
+			justify-content: none;
+			align-items: none;
+			.sidebar {
+				height: 100%;
+				width: 20%;
+				display: flex;
+				justify-content: none;
+				align-items: center;
+				flex-direction: column;
+				border-right: 0.5px solid #c3c4c7;
+				padding: 1%;
+				.menu-Option {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 15%;
+					width: 100%;
+					border: 0.5px solid #c3c4c7;
+					box-sizing: border-box;
+					margin: 2%;
+					font-size: 16px;
+					font-weight: 600;
+				}
+				.MuiButton-root {
+					text-transform: none;
+				}
+			}
+			.main-body {
+				height: 100%;
+				width: 85%;
+				.sub-MenuOption {
+					height: 100%;
+					width: 100%;
+					display: flex;
+					justify-content: none;
+					align-items: none;
+					flex-wrap: wrap;
+					padding: 1%;
+				}
+			}
+		}
+	}
+}
+.itemMenu--content {
+	border: 0.5px solid #c3c4c7;
+	box-sizing: border-box;
+	height: 30%;
+	width: 30%;
+	margin: 1%;
+	border-radius: 10px;
+	.current-Menu {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+.font-families {
+	font-family: Helvetica;
+}

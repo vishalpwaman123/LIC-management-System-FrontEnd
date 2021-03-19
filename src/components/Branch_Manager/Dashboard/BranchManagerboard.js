@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Static/Dashboard.css";
+import "../../Static/Dashboard.scss";
 import MenuList from "../../Static/MenuList";
 import userService from "../../../services/userServices";
 
@@ -72,6 +72,7 @@ function BranchManagerboard() {
   };
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
+  
   const AddDetailButton = () => {
     history.push({
       pathname: "/userDetail",

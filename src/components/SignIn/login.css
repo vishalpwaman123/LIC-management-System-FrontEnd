@@ -151,7 +151,7 @@
 	 width: 50%;
 }
  .loginMainContainer .loginContainer .p {
-	 border: 1px solid #c3c4c7;
+	 /* border: 1px solid #c3c4c7; */
 	 box-sizing: border-box;
 	 margin-bottom: 5px;
 }

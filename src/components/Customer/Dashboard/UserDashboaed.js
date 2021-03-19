@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Static/Dashboard.css";
+import "../../Static/Dashboard.scss";
 import MenuList from "../../Static/MenuList.js";
 import userService from "../../../services/userServices";
 

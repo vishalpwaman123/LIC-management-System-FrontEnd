@@ -19,4 +19,14 @@ export default class userServices {
     let url = config.getUsersById;
     return axiosService.post(url, data, false);
   }
+
+  forgetPassword(data) {
+    let url = config.forgetPassword;
+    return axiosService.post(url, data, false);
+  }
+
+  resetPassword(data) {
+    let url = config.resetPassword;
+    return axiosService.patch(url, data, false);
+  }
 }

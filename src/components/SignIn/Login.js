@@ -45,6 +45,12 @@ export default class Registration extends React.Component {
     };
   }
 
+  forgetPasswordRedirect = () => {
+    this.props.history.push({
+      pathname: "/forgetpassword",
+    });
+  };
+
   handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -92,9 +98,8 @@ export default class Registration extends React.Component {
                   search: "?query=id",
                   state: { detail: id },
                 });
-
+                
               } else if (user.account_Type == "Agent") {
-
                 this.props.history.push({
                   pathname: "/AgentDashboaed",
                   search: "?query=id",
@@ -103,22 +108,19 @@ export default class Registration extends React.Component {
 
                 // this.props.history.push("/AgentDashboaed");
               } else if (user.account_Type == "Manager") {
-
                 this.props.history.push({
                   pathname: "/BranchManagerboard",
                   search: "?query=id",
                   state: { detail: id },
                 });
-                
+
                 // this.props.history.push("/BranchManagerboard");
               } else {
-
                 this.props.history.push({
                   pathname: "/CEODashboaed",
                   search: "?query=id",
                   state: { detail: id },
                 });
-
               }
             }
           })
@@ -275,7 +277,7 @@ export default class Registration extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={this.handleSubmit}
+                onClick={this.forgetPasswordRedirect}
                 className="SignIn-btn"
               >
                 Sign in

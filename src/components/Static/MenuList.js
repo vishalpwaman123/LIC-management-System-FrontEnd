@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Dashboard.css";
+import "./Dashboard.scss";
 
 export class MenuList extends Component {
   render() {

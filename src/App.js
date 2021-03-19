@@ -7,6 +7,8 @@ import userDashboaed from "./components/Customer/Dashboard/UserDashboaed.js";
 import AgentDashboaed from "./components/Agent/Dashboard/AgentDashboard.js";
 import BranchManagerboard from "./components/Branch_Manager/Dashboard/BranchManagerboard.js";
 import CEODashboaed from "./components/CEO/Dashboard/CEODashboaed.js";
+import ResetPassword from "./components/forgetPassword/ResetPassword.js"
+import ForgetPassword from './components/forgetPassword/ForgetPassword'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route exact path="/userDetail" component={userDetail} />
           <Route exact path="/userDashboaed" component={userDashboaed} />
           <Route exact path="/AgentDashboaed" component={AgentDashboaed} />
+          <Route exact path="/resetpassword" component={ResetPassword} />
+          <Route exact path="/forgetpassword" component={ForgetPassword} />
           <Route
             exact
             path="/BranchManagerboard"

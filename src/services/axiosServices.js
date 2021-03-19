@@ -2,8 +2,8 @@ const axios = require("axios").default;
 
 export default class axiosServices {
   post(url, data, isRequiredHeader = false, header) {
-      console.log("Data User:", data);
-      console.log("Url User:", url);
+    console.log("Data User:", data);
+    console.log("Url User:", url);
     return axios.post(url, data, isRequiredHeader && header);
   }
 
@@ -11,11 +11,7 @@ export default class axiosServices {
     return axios.get(url, isRequiredHeader && header);
   }
 
-  put(url, data, isRequiredHeader = false, header) {
-    return axios.put(url, data, isRequiredHeader && header);
-  }
-
-  delete(url, data, isRequiredHeader = false, header) {
-    return axios.delete(url, data, isRequiredHeader && header);
+  patch(url, data, isRequiredHeader = false, header) {
+    return axios.patch(url, data, isRequiredHeader && header);
   }
 }
