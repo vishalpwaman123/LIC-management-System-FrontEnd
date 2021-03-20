@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./resetPassword.scss";
+import "./resetPassword.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MuiAlert from "@material-ui/lab/Alert";
@@ -29,7 +29,7 @@ export default function ResetPassword() {
   const [Success, setSuccess] = useState(false);
   const [snackbaropen, setsnackbaropen] = useState(false);
   const [customer_id, setcustomer_id] = useState();
-  
+
   const history = useHistory();
   const location = useLocation();
   useEffect(() => {

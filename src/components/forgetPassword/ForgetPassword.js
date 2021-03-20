@@ -1,5 +1,5 @@
 import React from "react";
-import "./forgetPassword.scss";
+import "./forgetPassword.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MuiAlert from "@material-ui/lab/Alert";
