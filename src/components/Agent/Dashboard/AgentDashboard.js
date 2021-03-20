@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 
 const User_service = new userService();
 
+var customer_id = null;
 var customer_Name = null;
 var email = null;
 var qualification = null;
@@ -53,6 +54,7 @@ function AgentDashboard() {
 
   const HandleData = (Data) => {
     console.log(Data.customer_id);
+    customer_id = Data.customer_id;
     customer_Name = Data.customer_Name;
     email = Data.email;
     qualification = Data.qualification;
@@ -92,8 +94,10 @@ function AgentDashboard() {
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
   const AddDetailButton = () => {
-    history.push({
+    this.props.history.push({
       pathname: "/userDetail",
+      search: "?query=id",
+      state: { detail: customer_id },
     });
   };
 

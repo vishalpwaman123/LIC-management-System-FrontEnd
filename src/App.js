@@ -2,13 +2,13 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registration from "./components/Registration/Registration.js";
 import login from "./components/SignIn/Login.js";
-import userDetail from "./components/Customer/Detail/Detail.js";
+import userDetail from "./components/Static/Detail/Detail.js";
 import userDashboaed from "./components/Customer/Dashboard/UserDashboaed.js";
 import AgentDashboaed from "./components/Agent/Dashboard/AgentDashboard.js";
 import BranchManagerboard from "./components/Branch_Manager/Dashboard/BranchManagerboard.js";
 import CEODashboaed from "./components/CEO/Dashboard/CEODashboaed.js";
-import ResetPassword from "./components/forgetPassword/ResetPassword.js"
-import ForgetPassword from './components/forgetPassword/ForgetPassword'
+import ResetPassword from "./components/forgetPassword/ResetPassword.js";
+import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 
 function App() {
   return (

@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
 
+var customer_id = null;
 var customer_Name = null;
 var email = null;
 var qualification = null;
@@ -57,11 +58,14 @@ function CEODashboaed() {
   const AddDetailButton = () => {
     history.push({
       pathname: "/userDetail",
+      search: "?query=id",
+      state: { detail: customer_id },
     });
   };
 
   const HandleData = (Data) => {
     console.log(Data.customer_id);
+    customer_id = Data.customer_id;
     customer_Name = Data.customer_Name;
     email = Data.email;
     qualification = Data.qualification;

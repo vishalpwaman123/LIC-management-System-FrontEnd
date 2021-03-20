@@ -4,4 +4,5 @@ module.exports = {
   getUsersById: "http://localhost:4000/api/users/getUsersById",
   forgetPassword: "http://localhost:4000/api/users/forgetPassword",
   resetPassword: "http://localhost:4000/api/users/resetPassword",
+  addUserdetail: "http://localhost:4000/api/users/addUserdetail",
 };

@@ -92,13 +92,11 @@ export default class Registration extends React.Component {
               this.setState({ snackbaropen: true });
               this.setState({ Success: true });
               if (user.account_Type == "Customer") {
-
                 this.props.history.push({
                   pathname: "/userDashboaed",
                   search: "?query=id",
                   state: { detail: id },
-                });
-                
+                }); 
               } else if (user.account_Type == "Agent") {
                 this.props.history.push({
                   pathname: "/AgentDashboaed",
@@ -206,9 +204,11 @@ export default class Registration extends React.Component {
             <div className="textField2">
               <TextField
                 fullWidth
+                autoComplete="off"
                 className="InputField"
                 name="password"
                 label="Password"
+                type="password"
                 id="outlined-size-small"
                 variant="outlined"
                 size="small"
@@ -262,6 +262,7 @@ export default class Registration extends React.Component {
               color="primary"
               href="/forgetPassword"
               className="Forgetpassword"
+              // onClick={this.forgetPasswordRedirect}
             >
               Forget password?
             </Button>
@@ -277,7 +278,7 @@ export default class Registration extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={this.forgetPasswordRedirect}
+                onClick={this.handleSubmit}
                 className="SignIn-btn"
               >
                 Sign in

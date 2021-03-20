@@ -29,4 +29,9 @@ export default class userServices {
     let url = config.resetPassword;
     return axiosService.patch(url, data, false);
   }
+
+  addUserdetail(data) {
+    let url = config.addUserdetail;
+    return axiosService.patch(url, data, false);
+  }
 }

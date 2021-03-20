@@ -29,6 +29,7 @@ export default function ResetPassword() {
   const [Success, setSuccess] = useState(false);
   const [snackbaropen, setsnackbaropen] = useState(false);
   const [customer_id, setcustomer_id] = useState();
+  
   const history = useHistory();
   const location = useLocation();
   useEffect(() => {
