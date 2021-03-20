@@ -14,7 +14,7 @@ export default class userServices {
     let url = config.Login;
     return axiosService.post(url, data, false);
   }
-
+ 
   fetchDataById(data) {
     let url = config.getUsersById;
     return axiosService.post(url, data, false);

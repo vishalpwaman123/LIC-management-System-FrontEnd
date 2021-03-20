@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Static/Dashboard.scss";
+import "../../Static/Dashboard.css";
 import MenuList from "../../Static/MenuList.js";
 import userService from "../../../services/userServices";
 
@@ -7,20 +7,13 @@ import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
 
-// var customer_id = null;
-// var customer_Name = null;
-// // var email = null;
-// var qualification = null;
-// var occupation = null;
-// var address = null;
-// var age = null;
-// var gender = null;
 var defaults = "NA";
 
 const User_service = new userService();
 
 function UserDashboaed() {
   const history = useHistory();
+
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
   const [BuypoliciesStatus, setBuypoliciesStatus] = useState(false);
@@ -143,11 +136,11 @@ function UserDashboaed() {
     setDetailStatus(false);
   };
 
-    const handleLogOut = () => {
-      history.push({
-        pathname: "/login",
-      });
-    };
+  const handleLogOut = () => {
+    history.push({
+      pathname: "/login",
+    });
+  };
 
   return (
     <div className="user-Dashboard-Container">

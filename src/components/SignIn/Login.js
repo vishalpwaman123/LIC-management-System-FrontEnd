@@ -12,7 +12,7 @@ import userService from "../../services/userServices";
 const User_service = new userService();
 
 const validEmailRegex = RegExp(
-  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+.)+[^<>()[\].,;:\s@"]{2,})$/i
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+.)+[^<>()[\].,;:\s@"]{2,})$/
 );
 
 const validateForm = (errors) => {
@@ -96,7 +96,7 @@ export default class Registration extends React.Component {
                   pathname: "/userDashboaed",
                   search: "?query=id",
                   state: { detail: id },
-                }); 
+                });
               } else if (user.account_Type == "Agent") {
                 this.props.history.push({
                   pathname: "/AgentDashboaed",
@@ -143,7 +143,7 @@ export default class Registration extends React.Component {
         errors.email = validEmailRegex.test(value) ? "" : "Email Id not valid";
         break;
       case "password":
-        errors.password = value.length < 8 ? "Password Not valid" : "";
+        errors.password = value.length < 8 ? "Password formate Not valid" : "";
         break;
       default:
         break;
@@ -294,11 +294,11 @@ export default class Registration extends React.Component {
               >
                 {this.state.Success ? (
                   <Alert onClose={this.handleSnackbarClose} severity="success">
-                    Registration successful.
+                    Login successful.
                   </Alert>
                 ) : (
                   <Alert onClose={this.handleSnackbarClose} severity="error">
-                    Registration Unsuccessful.
+                    Login Unsuccessful.
                   </Alert>
                 )}
               </Snackbar>

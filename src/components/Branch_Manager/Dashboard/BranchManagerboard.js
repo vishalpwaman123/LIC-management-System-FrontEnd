@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Static/Dashboard.scss";
+import "../../Static/Dashboard.css";
 import MenuList from "../../Static/MenuList";
 import userService from "../../../services/userServices";
 
@@ -140,11 +140,11 @@ function BranchManagerboard() {
     setDetailStatus(false);
   };
 
-    const handleLogOut = () => {
-      history.push({
-        pathname: "/login",
-      });
-    };
+  const handleLogOut = () => {
+    history.push({
+      pathname: "/login",
+    });
+  };
 
   return (
     <div className="user-Dashboard-Container">
@@ -166,7 +166,7 @@ function BranchManagerboard() {
                 AddDetailButton();
               }}
             >
-              Add Branch Detail
+              Add Branch Manager Detail
             </Button>
             <Button
               className="menu-Option"

@@ -172,11 +172,11 @@ export default class ForgetPassword extends React.Component {
               >
                 {this.state.Success ? (
                   <Alert onClose={this.handleSnackbarClose} severity="success">
-                    Registration successful.
+                    User Found successful.
                   </Alert>
                 ) : (
                   <Alert onClose={this.handleSnackbarClose} severity="error">
-                    Registration Unsuccessful.
+                    User not found.
                   </Alert>
                 )}
               </Snackbar>

@@ -65,7 +65,7 @@ export default class Registration extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let flags = this.state.flags;
+    // let flags = this.state.flags;
     let errors = this.state.errors;
 
     if (this.state.email == null) {
@@ -111,6 +111,9 @@ export default class Registration extends React.Component {
               this.setState({ snackbaropen: true });
               this.setState({ Success: false });
             });
+        } else {
+          this.setState({ snackbaropen: true });
+          this.setState({ Success: false });
         }
       }
     } else {
@@ -146,7 +149,7 @@ export default class Registration extends React.Component {
   };
 
   accountTypeHandle = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // checking for error compilation
     const { value } = event.target;
     // let accountType = this.state.accountType;
     console.log(value);
@@ -268,7 +271,7 @@ export default class Registration extends React.Component {
                 </div>
                 <div className="radiobutton">
                   <RadioGroup
-                    aria-label="gender"
+                    aria-label="Positions"
                     className="radiobutton1"
                     value={this.state.accountType}
                     onChange={this.accountTypeHandle}
