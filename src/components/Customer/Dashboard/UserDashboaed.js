@@ -23,7 +23,7 @@ function UserDashboaed() {
   const history = useHistory();
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
-  const [buyPoliciesStatus, setBuyPoliciesStatus] = useState(false);
+  const [BuypoliciesStatus, setBuypoliciesStatus] = useState(false);
 
   const lic_policies_List = [
     {
@@ -52,7 +52,28 @@ function UserDashboaed() {
     },
   ];
 
+  const Buy_policies_List = [
+    {
+      key: 1,
+      type: "Travel insurance",
+    },
+    {
+      key: 2,
+      type: "Health insurance",
+    },
+    {
+      key: 3,
+      type: " Motor insurance",
+    },
+    {
+      key: 4,
+      type: "Life Insurance",
+    },
+  ];
+
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
+  const [BuypoliciesList, setBuypoliciesList] = useState(Buy_policies_List);
+
   const AddDetailButton = () => {
     history.push({
       pathname: "/userDetail",
@@ -107,7 +128,8 @@ function UserDashboaed() {
   };
 
   const showBuyPolicies = () => {
-    setBuyPoliciesStatus(true);
+    setBuypoliciesStatus(true);
+    setPoliciesState(false);
     setDetailStatus(false);
   };
 
@@ -116,6 +138,11 @@ function UserDashboaed() {
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">Customer Dashboard</div>
+          <div className="refresh-Button">
+            <Button color="primary" variant="contained">
+              Refresh
+            </Button>
+          </div>
         </div>
         <div className="container-body">
           <div className="sidebar">
@@ -192,7 +219,7 @@ function UserDashboaed() {
                 </div>
               </div>
             </div>
-          ) : policiesList ? (
+          ) : policiesState ? (
             <div className="main-body">
               <div className="sub-MenuOption">
                 {policiesList.map((itm) => {
@@ -200,10 +227,10 @@ function UserDashboaed() {
                 })}
               </div>
             </div>
-          ) : buyPoliciesStatus ? (
+          ) : BuypoliciesStatus ? (
             <div className="main-body">
               <div className="sub-MenuOption">
-                {policiesList.map((itm) => {
+                {BuypoliciesList.map((itm) => {
                   return <MenuList key={itm.key} type={itm.type} />;
                 })}
               </div>

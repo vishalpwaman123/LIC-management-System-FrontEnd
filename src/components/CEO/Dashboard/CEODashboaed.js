@@ -24,7 +24,7 @@ function CEODashboaed() {
   const history = useHistory();
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
-  const [buyPoliciesStatus, setBuyPoliciesStatus] = useState(false);
+  const [showbranches, setshowbranches] = useState(false);
   const [UserData, setUserData] = useState();
 
   const lic_policies_List = [
@@ -54,7 +54,32 @@ function CEODashboaed() {
     },
   ];
 
+  const branch_List = [
+    {
+      key: 1,
+      type: "Pune",
+    },
+    {
+      key: 2,
+      type: "Mumbai",
+    },
+    {
+      key: 3,
+      type: "Ahmedabad",
+    },
+    {
+      key: 4,
+      type: "Gurgaon",
+    },
+    {
+      key: 5,
+      type: "Jalgaon",
+    },
+  ];
+
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
+  const [branchesList, setBranchesList] = useState(branch_List);
+
   const AddDetailButton = () => {
     history.push({
       pathname: "/userDetail",
@@ -105,12 +130,15 @@ function CEODashboaed() {
   }, [location, email]);
 
   const showPolicies = () => {
+    console.log("show policies");
     setPoliciesState(true);
     setDetailStatus(false);
   };
 
-  const showBuyPolicies = () => {
-    setBuyPoliciesStatus(true);
+  const showbranchesList = () => {
+    console.log("show branches");
+    setshowbranches(true);
+    setPoliciesState(false);
     setDetailStatus(false);
   };
 
@@ -119,6 +147,11 @@ function CEODashboaed() {
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">CEO Dashboard</div>
+          <div className="refresh-Button">
+            <Button color="primary" variant="contained">
+              Refresh
+            </Button>
+          </div>
         </div>
         <div className="container-body">
           <div className="sidebar">
@@ -144,7 +177,7 @@ function CEODashboaed() {
               className="menu-Option"
               color="primary"
               onClick={() => {
-                showBuyPolicies();
+                showbranchesList();
               }}
             >
               All Branches
@@ -195,7 +228,7 @@ function CEODashboaed() {
                 </div>
               </div>
             </div>
-          ) : policiesList ? (
+          ) : policiesState ? (
             <div className="main-body">
               <div className="sub-MenuOption">
                 {policiesList.map((itm) => {
@@ -203,16 +236,16 @@ function CEODashboaed() {
                 })}
               </div>
             </div>
-          ) : buyPoliciesStatus ? (
+          ) : showbranches ? (
             <div className="main-body">
               <div className="sub-MenuOption">
-                {policiesList.map((itm) => {
+                {branchesList.map((itm) => {
                   return <MenuList key={itm.key} type={itm.type} />;
                 })}
               </div>
             </div>
           ) : (
-            ""
+            <h1>Hello</h1>
           )}
         </div>
       </div>

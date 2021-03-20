@@ -23,7 +23,7 @@ function BranchManagerboard() {
   const history = useHistory();
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
-  const [buyPoliciesStatus, setBuyPoliciesStatus] = useState(false);
+  const [agentNameStatus, setagentNameStatus] = useState(false);
 
   const lic_policies_List = [
     {
@@ -52,6 +52,25 @@ function BranchManagerboard() {
     },
   ];
 
+  const agent_Name_List = [
+    {
+      key: 1,
+      type: "Swapnali",
+    },
+    {
+      key: 2,
+      type: "Saurabh",
+    },
+    {
+      key: 3,
+      type: "Vishal",
+    },
+    {
+      key: 4,
+      type: "Rahul",
+    },
+  ];
+
   const HandleData = (Data) => {
     console.log(Data.customer_id);
     customer_id = Data.customer_id;
@@ -74,6 +93,7 @@ function BranchManagerboard() {
   };
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
+  const [agentNameList, setagentNameList] = useState(agent_Name_List);
 
   const AddDetailButton = () => {
     history.push({
@@ -108,7 +128,8 @@ function BranchManagerboard() {
   };
 
   const showBuyPolicies = () => {
-    setBuyPoliciesStatus(true);
+    setagentNameStatus(true);
+    setPoliciesState(false);
     setDetailStatus(false);
   };
 
@@ -117,6 +138,11 @@ function BranchManagerboard() {
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">Branch Manager Dashboard</div>
+          <div className="refresh-Button">
+            <Button color="primary" variant="contained">
+              Refresh
+            </Button>
+          </div>
         </div>
         <div className="container-body">
           <div className="sidebar">
@@ -193,7 +219,7 @@ function BranchManagerboard() {
                 </div>
               </div>
             </div>
-          ) : policiesList ? (
+          ) : policiesState ? (
             <div className="main-body">
               <div className="sub-MenuOption">
                 {policiesList.map((itm) => {
@@ -201,10 +227,10 @@ function BranchManagerboard() {
                 })}
               </div>
             </div>
-          ) : buyPoliciesStatus ? (
+          ) : agentNameStatus ? (
             <div className="main-body">
               <div className="sub-MenuOption">
-                {policiesList.map((itm) => {
+                {agentNameList.map((itm) => {
                   return <MenuList key={itm.key} type={itm.type} />;
                 })}
               </div>

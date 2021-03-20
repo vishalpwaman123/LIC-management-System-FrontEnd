@@ -23,7 +23,7 @@ function AgentDashboard() {
   const history = useHistory();
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
-  const [buyPoliciesStatus, setBuyPoliciesStatus] = useState(false);
+  const [agentcustomeStatus, setagentcustomeStatus] = useState(false);
 
   const lic_policies_List = [
     {
@@ -49,6 +49,21 @@ function AgentDashboard() {
     {
       key: 6,
       type: "Mobile insurance",
+    },
+  ];
+
+  const agent_customer_List = [
+    {
+      key: 1,
+      type: "Parate",
+    },
+    {
+      key: 2,
+      type: "kondhalkar",
+    },
+    {
+      key: 3,
+      type: "Swati",
     },
   ];
 
@@ -93,8 +108,12 @@ function AgentDashboard() {
   }, [location]);
 
   const [policiesList, setPoliciesList] = useState(lic_policies_List);
+  const [agentcustomerList, setagentcustomerList] = useState(
+    agent_customer_List
+  );
+
   const AddDetailButton = () => {
-    this.props.history.push({
+    history.push({
       pathname: "/userDetail",
       search: "?query=id",
       state: { detail: customer_id },
@@ -107,7 +126,8 @@ function AgentDashboard() {
   };
 
   const showBuyPolicies = () => {
-    setBuyPoliciesStatus(true);
+    setagentcustomeStatus(true);
+    setPoliciesState(false);
     setDetailStatus(false);
   };
 
@@ -116,6 +136,11 @@ function AgentDashboard() {
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">Agent Dashboard</div>
+          <div className="refresh-Button">
+            <Button color="primary" variant="contained">
+              Refresh
+            </Button>
+          </div>
         </div>
         <div className="container-body">
           <div className="sidebar">
@@ -192,7 +217,7 @@ function AgentDashboard() {
                 </div>
               </div>
             </div>
-          ) : policiesList ? (
+          ) : policiesState ? (
             <div className="main-body">
               <div className="sub-MenuOption">
                 {policiesList.map((itm) => {
@@ -200,10 +225,10 @@ function AgentDashboard() {
                 })}
               </div>
             </div>
-          ) : buyPoliciesStatus ? (
+          ) : agentcustomeStatus ? (
             <div className="main-body">
               <div className="sub-MenuOption">
-                {policiesList.map((itm) => {
+                {agentcustomerList.map((itm) => {
                   return <MenuList key={itm.key} type={itm.type} />;
                 })}
               </div>
