@@ -34,4 +34,10 @@ export default class userServices {
     let url = config.addUserdetail;
     return axiosService.patch(url, data, false);
   }
+
+  deleteAllData() {
+    let url = config.deleteAllData;
+    let data = null;
+    return axiosService.delete(url, data, false);
+  }
 }

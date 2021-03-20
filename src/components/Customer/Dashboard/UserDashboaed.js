@@ -7,14 +7,14 @@ import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
 
-var customer_id = null;
-var customer_Name = null;
-var email = null;
-var qualification = null;
-var occupation = null;
-var address = null;
-var age = null;
-var gender = null;
+// var customer_id = null;
+// var customer_Name = null;
+// // var email = null;
+// var qualification = null;
+// var occupation = null;
+// var address = null;
+// var age = null;
+// var gender = null;
 var defaults = "NA";
 
 const User_service = new userService();
@@ -24,6 +24,14 @@ function UserDashboaed() {
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
   const [BuypoliciesStatus, setBuypoliciesStatus] = useState(false);
+  const [customer_id, setcustomer_id] = useState(0);
+  const [customer_Name, setcustomer_Name] = useState("");
+  const [email, setemail] = useState("");
+  const [qualification, setqualification] = useState("");
+  const [occupation, setoccupation] = useState("");
+  const [address, setaddress] = useState("");
+  const [age, setage] = useState("");
+  const [gender, setgender] = useState("");
 
   const lic_policies_List = [
     {
@@ -78,20 +86,20 @@ function UserDashboaed() {
     history.push({
       pathname: "/userDetail",
       search: "?query=id",
-      state: { detail: customer_id },
+      state: { detail: customer_id, backdirection: "/userDashboaed" },
     });
   };
 
   const HandleData = (Data) => {
     console.log(Data.customer_id);
-    customer_id = Data.customer_id;
-    customer_Name = Data.customer_Name;
-    email = Data.email;
-    qualification = Data.qualification;
-    occupation = Data.occupation;
-    address = Data.address;
-    age = Data.age;
-    gender = Data.gender;
+    setemail(Data.email);
+    setcustomer_Name(Data.customer_Name);
+    setcustomer_id(Data.customer_id);
+    setqualification(Data.qualification);
+    setoccupation(Data.occupation);
+    setaddress(Data.address);
+    setage(Data.age);
+    setgender(Data.gender);
     console.log(
       customer_Name,
       email,
@@ -109,11 +117,13 @@ function UserDashboaed() {
     console.log(location.pathname); // result: '/secondpage'
     console.log(location.search); // result: '?query=abc'
     console.log(location.state.detail); // result: 'some_value'
+
     const user = {
       id: location.state.detail,
     };
     User_service.fetchDataById(user)
       .then((data) => {
+        console.log(data.data.data[0]);
         console.log(data.data.data[0]);
         HandleData(data.data.data[0]);
       })
@@ -133,14 +143,20 @@ function UserDashboaed() {
     setDetailStatus(false);
   };
 
+    const handleLogOut = () => {
+      history.push({
+        pathname: "/login",
+      });
+    };
+
   return (
     <div className="user-Dashboard-Container">
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">Customer Dashboard</div>
-          <div className="refresh-Button">
-            <Button color="primary" variant="contained">
-              Refresh
+          <div className="signOut-Button">
+            <Button color="primary" variant="contained" onClick={handleLogOut}>
+              Log Out
             </Button>
           </div>
         </div>

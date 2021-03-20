@@ -4,19 +4,12 @@ import MenuList from "../../Static/MenuList";
 import userService from "../../../services/userServices";
 
 import Button from "@material-ui/core/Button";
+import Alert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
 import { useHistory } from "react-router";
 import { useLocation } from "react-router-dom";
 
-var customer_id = null;
-var customer_Name = null;
-var email = null;
-var qualification = null;
-var occupation = null;
-var address = null;
-var age = null;
-var gender = null;
 var defaults = "NA";
-var display_flag = 0;
 
 const User_service = new userService();
 
@@ -25,8 +18,17 @@ function CEODashboaed() {
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
   const [showbranches, setshowbranches] = useState(false);
-  const [UserData, setUserData] = useState();
-
+  const [customer_id, setcustomer_id] = useState(0);
+  const [customer_Name, setcustomer_Name] = useState("");
+  const [email, setemail] = useState("");
+  const [qualification, setqualification] = useState("");
+  const [occupation, setoccupation] = useState("");
+  const [address, setaddress] = useState("");
+  const [age, setage] = useState("");
+  const [gender, setgender] = useState("");
+  const [refreshstatus, setrefreshstatus] = useState(false);
+  const [Success, setSuccess] = useState(false);
+  const [snackbaropen, setsnackbaropen] = useState(false);
   const lic_policies_List = [
     {
       key: 1,
@@ -84,21 +86,20 @@ function CEODashboaed() {
     history.push({
       pathname: "/userDetail",
       search: "?query=id",
-      state: { detail: customer_id },
+      state: { detail: customer_id, backdirection: "/CEODashboaed" },
     });
   };
 
   const HandleData = (Data) => {
     console.log(Data.customer_id);
-    customer_id = Data.customer_id;
-    customer_Name = Data.customer_Name;
-    email = Data.email;
-    qualification = Data.qualification;
-    occupation = Data.occupation;
-    address = Data.address;
-    age = Data.age;
-    gender = Data.gender;
-    display_flag = 1;
+    setemail(Data.email);
+    setcustomer_Name(Data.customer_Name);
+    setcustomer_id(Data.customer_id);
+    setqualification(Data.qualification);
+    setoccupation(Data.occupation);
+    setaddress(Data.address);
+    setage(Data.age);
+    setgender(Data.gender);
     console.log(
       customer_Name,
       email,
@@ -142,14 +143,56 @@ function CEODashboaed() {
     setDetailStatus(false);
   };
 
+  const handleRefresh = (event) => {
+    User_service.deleteAllData()
+      .then((data) => {
+        console.log(data.data.data.affectedRows);
+        if (data.data.data.affectedRows == 0) {
+          setSuccess(false);
+          setrefreshstatus(true);
+          setsnackbaropen(true);
+        } else {
+          setSuccess(true);
+          setrefreshstatus(true);
+          setsnackbaropen(true);
+        }
+        history.push({
+          pathname: "/login",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setSuccess(false);
+        setrefreshstatus(true);
+        setsnackbaropen(true);
+      });
+  };
+
+  const handleLogOut = () => {
+    history.push({
+      pathname: "/login",
+    });
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setsnackbaropen(false);
+  };
   return (
     <div className="user-Dashboard-Container">
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">CEO Dashboard</div>
           <div className="refresh-Button">
-            <Button color="primary" variant="contained">
+            <Button color="primary" variant="contained" onClick={handleRefresh}>
               Refresh
+            </Button>
+          </div>
+          <div className="signOut-Button">
+            <Button color="primary" variant="contained" onClick={handleLogOut}>
+              Log Out
             </Button>
           </div>
         </div>
@@ -248,6 +291,28 @@ function CEODashboaed() {
             <h1>Hello</h1>
           )}
         </div>
+      </div>
+
+      <div className="AlertMessage">
+        {refreshstatus ? (
+          <Snackbar
+            open={snackbaropen}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+          >
+            {Success ? (
+              <Alert onClose={handleSnackbarClose} severity="success">
+                Database Refresh successful.
+              </Alert>
+            ) : (
+              <Alert onClose={handleSnackbarClose} severity="error">
+                Database Refresh Unsuccessful.
+              </Alert>
+            )}
+          </Snackbar>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

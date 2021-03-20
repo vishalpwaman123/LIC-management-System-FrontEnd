@@ -7,6 +7,7 @@ import Radio from "@material-ui/core/Radio";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/Button";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router";
 
 import userService from "../../../services/userServices";
 const User_service = new userService();
@@ -14,6 +15,7 @@ const User_service = new userService();
 var id = null;
 
 function Detail() {
+  const history = useHistory();
   const [erroruserName, seterroruserName] = useState("");
   const [errorAge, seterrorAge] = useState("");
   const [errorQualification, seterrorQualification] = useState("");
@@ -34,6 +36,7 @@ function Detail() {
     console.log(location.pathname); // result: '/secondpage'
     console.log(location.search); // result: '?query=abc'
     console.log(location.state.detail); // result: 'some_value'
+    console.log(location.state.backdirection); // result : parent path
     id = location.state.detail;
     console.log(id);
   }, [location]);
@@ -119,7 +122,11 @@ function Detail() {
           const object = data.data;
           console.log(object.success);
           console.log(object.message);
-          /*Responses.Message = object.message;*/
+          console.log(location.state.backdirection);
+          history.push({
+            pathname: location.state.backdirection,
+            state: { detail: location.state.detail },
+          });
         })
         .catch((error) => {
           console.log(error);

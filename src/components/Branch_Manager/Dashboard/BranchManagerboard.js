@@ -24,7 +24,14 @@ function BranchManagerboard() {
   const [policiesState, setPoliciesState] = useState(false);
   const [detailStatus, setDetailStatus] = useState(true);
   const [agentNameStatus, setagentNameStatus] = useState(false);
-
+  const [customer_id, setcustomer_id] = useState(0);
+  const [customer_Name, setcustomer_Name] = useState("");
+  const [email, setemail] = useState("");
+  const [qualification, setqualification] = useState("");
+  const [occupation, setoccupation] = useState("");
+  const [address, setaddress] = useState("");
+  const [age, setage] = useState("");
+  const [gender, setgender] = useState("");
   const lic_policies_List = [
     {
       key: 1,
@@ -73,14 +80,14 @@ function BranchManagerboard() {
 
   const HandleData = (Data) => {
     console.log(Data.customer_id);
-    customer_id = Data.customer_id;
-    customer_Name = Data.customer_Name;
-    email = Data.email;
-    qualification = Data.qualification;
-    occupation = Data.occupation;
-    address = Data.address;
-    age = Data.age;
-    gender = Data.gender;
+    setemail(Data.email);
+    setcustomer_Name(Data.customer_Name);
+    setcustomer_id(Data.customer_id);
+    setqualification(Data.qualification);
+    setoccupation(Data.occupation);
+    setaddress(Data.address);
+    setage(Data.age);
+    setgender(Data.gender);
     console.log(
       customer_Name,
       email,
@@ -99,7 +106,7 @@ function BranchManagerboard() {
     history.push({
       pathname: "/userDetail",
       search: "?query=id",
-      state: { detail: customer_id },
+      state: { detail: customer_id, backdirection: "/BranchManagerboard" },
     });
   };
 
@@ -133,14 +140,20 @@ function BranchManagerboard() {
     setDetailStatus(false);
   };
 
+    const handleLogOut = () => {
+      history.push({
+        pathname: "/login",
+      });
+    };
+
   return (
     <div className="user-Dashboard-Container">
       <div className="sub-container">
         <div className="header">
           <div className="text font-families">Branch Manager Dashboard</div>
-          <div className="refresh-Button">
-            <Button color="primary" variant="contained">
-              Refresh
+          <div className="signOut-Button">
+            <Button color="primary" variant="contained" onClick={handleLogOut}>
+              Log Out
             </Button>
           </div>
         </div>

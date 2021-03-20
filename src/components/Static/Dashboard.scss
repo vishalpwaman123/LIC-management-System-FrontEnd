@@ -197,8 +197,14 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        width: 50%;
+        width: 25%;
+      }
+      .signOut-Button {
+        width: 25%;
         margin-right: 10%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
       }
     }
     .container-body {
@@ -250,6 +256,10 @@
 }
 .itemMenu--content {
   border: 0.5px solid #c3c4c7;
+  background-color: rgb(78, 58, 196);
+  color: white;
+  font-size: 20px;
+  font-family: Helvetica;
   box-sizing: border-box;
   height: 30%;
   width: 30%;
